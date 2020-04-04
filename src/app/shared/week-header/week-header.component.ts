@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DaysOfTheWeek, daysOfTheWeek } from '../../core/constants/daysOffTheWeek';
 
 @Component({
   selector: 'app-week-header',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeekHeaderComponent implements OnInit {
 
+  daysOfWeek: DaysOfTheWeek[] = daysOfTheWeek;
+
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

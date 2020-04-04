@@ -1,12 +1,7 @@
 
 
-<div style="padding-left: 10px">
-  <app-day></app-day>
-  <app-day></app-day>
-  <app-day></app-day>
-  <app-day></app-day>
-  <app-day></app-day>
-  <app-day></app-day>
-  <app-day></app-day>
-
+<div *ngFor="let day of week.days">
+  <app-day
+    [day]="day"
+  ></app-day>
 </div>
