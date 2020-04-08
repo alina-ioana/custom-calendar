@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { generateCalendar } from '../../core/helpers/CalendarHelper';
+import {CalendarService} from "../../core/services/calendar.service";
+
 @Component({
   selector: 'app-month-header',
   templateUrl: './month-header.component.html',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonthHeaderComponent implements OnInit {
 
-  constructor() { }
+  referenceDate = null;
+
+
+  constructor(
+    private calendarService: CalendarService
+  ) {
+
+    calendarService.referenceDate$.subscribe(response => {
+      this.referenceDate = response;
+      console.warn('"In constructor', this.referenceDate);
+    });
+
+  }
 
   ngOnInit() {
+
+  }
+
+  prev() {
+    this.calendarService.setReferenceDate(this.referenceDate.add(1, 'month'));
+  }
+
+  next() {
   }
 
 }

@@ -1,13 +1,24 @@
 <div class="container">
-  <app-month-header></app-month-header>
 
-  <app-week-header></app-week-header>
+ <div class="calendar-container">
+   <app-month-header></app-month-header>
+
+   <div>
+     <app-week-header></app-week-header>
+   </div>
 
 
-  <div *ngFor="let week of calendar">
-    <app-week
-        [week]="week"
-    ></app-week>
-  </div>
+   <div>
+     <div *ngFor="let week of calendar">
+       <app-week
+         [week]="week"
+       ></app-week>
+     </div>
+   </div>
+ </div>
+
+
+
+
 
 </div>

@@ -1,4 +1,9 @@
-<div *ngFor="let dayName of daysOfWeek">
-
-  <span>{{dayName.name}}</span>
+<div class="week-header-container">
+  <div *ngFor="let dayName of daysOfWeek"
+      [ngClass]="getDayClass(dayName)"
+  >
+    <span>{{dayName.name}}</span>
+  </div>
 </div>
+
+

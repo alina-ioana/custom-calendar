@@ -16,4 +16,14 @@ export class WeekHeaderComponent implements OnInit {
 
   }
 
+  getDayClass(day) {
+    let className = 'week-header-name ';
+    if(day.isWeekend) {
+      className += 'weekend';
+    } else {
+      className += 'work-day';
+    }
+    return className;
+  }
+
 }

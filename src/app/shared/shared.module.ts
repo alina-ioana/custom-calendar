@@ -20,6 +20,6 @@ import { DayComponent } from '../shared/day/day.component';
   ],
   exports: [
     CalendarContainerComponent,
-  ]
+  ],
 })
 export class SharedModule { }
