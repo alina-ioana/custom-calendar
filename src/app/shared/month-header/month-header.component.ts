@@ -12,14 +12,12 @@ export class MonthHeaderComponent implements OnInit {
 
   referenceDate = null;
 
-
   constructor(
     private calendarService: CalendarService
   ) {
 
     calendarService.referenceDate$.subscribe(response => {
       this.referenceDate = response;
-      console.warn('"In constructor', this.referenceDate);
     });
 
   }
@@ -29,10 +27,11 @@ export class MonthHeaderComponent implements OnInit {
   }
 
   prev() {
-    this.calendarService.setReferenceDate(this.referenceDate.add(1, 'month'));
+    this.calendarService.setReferenceDate(this.referenceDate.subtract(1, 'month'));
   }
 
   next() {
+    this.calendarService.setReferenceDate(this.referenceDate.add(1, 'month'));
   }
 
 }

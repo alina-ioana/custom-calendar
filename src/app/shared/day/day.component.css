@@ -6,6 +6,14 @@ div {
   border: 1px solid white;
 }
 
+.current-date {
+  background-color: aquamarine;
+}
+
+.prev-next-month {
+  background-color: gray;
+}
+
 div:hover {
 
   cursor: pointer;

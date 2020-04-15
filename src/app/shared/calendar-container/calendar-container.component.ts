@@ -20,18 +20,15 @@ export class CalendarContainerComponent implements OnInit {
   ) {
     calendarService.referenceDate$.subscribe(response => {
       this.referenceDate = response;
-      console.error('"In constructor', this.referenceDate);
+      this.generateCalendar();
     });
   }
 
   ngOnInit() {
-    this.generateCalendar();
+    this.calendarService.setReferenceDate(moment());
   }
 
   generateCalendar() {
-    this.referenceDate = moment();
-
-    this.calendarService.setReferenceDate(this.referenceDate);
     this.calendar = generateCalendar(this.referenceDate);
   }
 
