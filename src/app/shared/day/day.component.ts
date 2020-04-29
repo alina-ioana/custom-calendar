@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {CalendarService} from "../../core/services/calendar.service";
-import moment from "moment";
 
 @Component({
   selector: 'app-day',
@@ -10,17 +9,14 @@ import moment from "moment";
 export class DayComponent implements OnInit {
 
   @Input() day;
-  referenceDate = moment();
+  @Input() referenceDate;
 
   constructor(
     public calendarService: CalendarService,
-  ) {
-    calendarService.referenceDate$.subscribe(response => {
-      this.referenceDate = response;
-    });
-  }
+  ) { }
 
   ngOnInit() {
+
   }
 
   isCurrentDate() {
@@ -28,13 +24,10 @@ export class DayComponent implements OnInit {
   }
 
   isCurrentMonth() {
-    //console.log(this.referenceDate)
-    if(!this.referenceDate) return true;
    return this.referenceDate.isSame(this.day, 'month');
   }
 
   getDayClass() {
-
     if(!this.isCurrentMonth()) {
       return 'prev-next-month';
     }

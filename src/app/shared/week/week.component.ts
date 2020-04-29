@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class WeekComponent implements OnInit {
 
   @Input() week;
+  @Input() referenceDate;
 
   constructor() { }
 

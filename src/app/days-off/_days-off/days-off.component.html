@@ -1,1 +1,117 @@
 <app-calendar-container></app-calendar-container>
+
+<div class="container mt-4">
+  <button
+    type="button"
+    [ngClass]="displayDaysOffForm ? 'btn btn-default':'btn btn-primary'"
+    (click)="toggleDaysOffForm()"
+    id="toggle-display-form"
+  >
+    {{displayDaysOffForm ? 'Cancel' : 'Add New'}}
+  </button>
+</div>
+
+<div *ngIf="displayDaysOffForm" class="container mt-4">
+
+ <h4>New Day Off</h4>
+
+    <form [formGroup]="form" >
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input
+              id="first-name"
+              type="text"
+              class="form-control"
+              name="firstName"
+              formControlName="firstName"
+            />
+            <div class="alert alert-danger" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+              Last name is required.
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="last-name">LastName</label>
+            <input
+              id="last-name"
+              type="text"
+              class="form-control"
+              name="lastName"
+              formControlName="lastName"
+            />
+            <div class="alert alert-danger" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+              Last name is required.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+  <button
+    id="submit-daysoff-form"
+    class="btn btn-success"
+    (click)="submitDaysOff()"
+    [disabled]="form.invalid"
+  >
+    Submit
+  </button>
+
+
+{{firstName.value}} {{lastName.value}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  Template driven forms-->
+<!--  <form #daysOffForm>-->
+<!--    <div class="row">-->
+<!--      <div class="col-sm-3">-->
+<!--        <div class="form-group">-->
+<!--          <label for="first-name">First Name</label>-->
+<!--          <input-->
+<!--            id="first-name"-->
+<!--            type="text"-->
+<!--            class="form-control"-->
+<!--            name="firstName"-->
+<!--            required-->
+<!--            [(ngModel)]="firstName"-->
+<!--          />-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-sm-3">-->
+<!--        <div class="form-group">-->
+<!--          <label for="last-name">LastName</label>-->
+<!--          <input-->
+<!--            id="last-name"-->
+<!--            type="text"-->
+<!--            class="form-control"-->
+<!--            name="lastName"-->
+<!--            required-->
+<!--            [(ngModel)]="lastName"-->
+<!--          />-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </form>-->
+
+
+
+</div>
