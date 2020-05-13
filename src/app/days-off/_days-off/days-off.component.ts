@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CalendarService} from "../../core/services/calendar.service";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators, AbstractControl} from "@angular/forms";
+import { CustomValidators } from 'src/app/shared/validation-messages/CustomValidators';
 
 @Component({
   selector: 'app-days-off',
@@ -34,8 +35,8 @@ export class DaysOffComponent implements OnInit {
 
   initForm() {
     this.form = this.formBuilder.group({
-      firstName: ['Alina', Validators.required],
-      lastName: ['', Validators.required],
+      firstName: ['', [Validators.required, CustomValidators.fixedLength(5), CustomValidators.isNumber()]],
+      lastName: ['', [Validators.required]],
     });
   }
 
@@ -43,7 +44,11 @@ export class DaysOffComponent implements OnInit {
     this.displayDaysOffForm = !this.displayDaysOffForm;
   }
 
-  get firstName() {return this.form.get('firstName')}
-  get lastName() {return this.form.get('lastName')}
+  get firstName(): AbstractControl {return this.form.get('firstName')}
+  get lastName(): AbstractControl {return this.form.get('lastName')}
+
+  changeFirstName(value) {
+    console.log(this.firstName)
+  }
 
 }

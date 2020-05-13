@@ -26,10 +26,17 @@
               class="form-control"
               name="firstName"
               formControlName="firstName"
+              (change)="changeFirstName()"
             />
-            <div class="alert alert-danger" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
-              Last name is required.
+            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+              <app-validation-messages
+              [vm]="'basic_form'"
+              [control]='firstName'
+              [controlName]="'firstName'"
+              >
+              </app-validation-messages>
             </div>
+            
           </div>
         </div>
         <div class="col-sm-3">
@@ -42,9 +49,15 @@
               name="lastName"
               formControlName="lastName"
             />
-            <div class="alert alert-danger" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
-              Last name is required.
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+              <app-validation-messages
+                [vm]="'basic_form'"
+                [control]='lastName'
+                [controlName]="'lastName'"
+              >
+            </app-validation-messages>
             </div>
+            
           </div>
         </div>
 
@@ -59,9 +72,6 @@
   >
     Submit
   </button>
-
-
-{{firstName.value}} {{lastName.value}}
 
 
 

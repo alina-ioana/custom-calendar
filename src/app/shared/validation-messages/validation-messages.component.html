@@ -1,0 +1,8 @@
+<div class="form-group" *ngFor="let vm of validationMessages[controlName]">
+    <small 
+        *ngIf="control.errors[vm.type]"
+        class="text-danger"
+    >
+    {{vm.message}}
+    </small>
+</div>  

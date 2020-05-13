@@ -6,6 +6,7 @@ import { MonthHeaderComponent } from '../shared/month-header/month-header.compon
 import { WeekHeaderComponent } from '../shared/week-header/week-header.component';
 import { WeekComponent } from '../shared/week/week.component';
 import { DayComponent } from '../shared/day/day.component';
+import { ValidationMessagesComponent } from './validation-messages/validation-messages.component';
 
 @NgModule({
   declarations: [
@@ -13,13 +14,15 @@ import { DayComponent } from '../shared/day/day.component';
     MonthHeaderComponent,
     WeekHeaderComponent,
     WeekComponent,
-    DayComponent
+    DayComponent,
+    ValidationMessagesComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
     CalendarContainerComponent,
+    ValidationMessagesComponent,
   ],
 })
 export class SharedModule { }
