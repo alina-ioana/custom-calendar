@@ -115,6 +115,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "calendar-app"
+    }
+  },
+  "defaultProject": "calendar-app",
+  "cli": {
+    "analytics": false
+  }
 }
